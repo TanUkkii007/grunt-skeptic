@@ -1,6 +1,6 @@
 /*
  * grunt-skeptic
- * https://github.com/TanUkkii007/grunt
+ * https://github.com/TanUkkii007/grunt-skeptic
  *
  * Copyright (c) 2014 Yusuke Yasuda
  * Licensed under the MIT license.
@@ -30,10 +30,11 @@ module.exports = function(grunt) {
           return true;
         }
       }).map(function(filepath) {
+        filepath = f.dest || filepath;
         grunt.log.writeln('File "' + filepath + '" is now with a query ' + query + ' in ');
         grunt.file.expand({noglobstar: false, debug: false, nocase: false}, options.viewfile_path).forEach(function(viewfile) {
           var content = grunt.file.read(viewfile);
-          var regexp = new RegExp(filepath + '\\?*\\d*');
+          var regexp = new RegExp(filepath + '\\??[\\w&=]*');
           var matched = content.match(regexp);
           if (matched && matched.length) {
             grunt.log.writeln('    "' + viewfile + '" on ' + matched.length + ' lines.');

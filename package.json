@@ -1,7 +1,7 @@
 {
   "name": "grunt-skeptic",
   "description": "Update CSS and JS link query in your view file.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/TanUkkii007/grunt-skeptic",
   "author": {
     "name": "Yusuke Yasuda",
